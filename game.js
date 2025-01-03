@@ -1,5 +1,5 @@
 function playGame(){
-    console.log(computerChoice());
+    console.log(humanChoice());
 }
 
 function playRound(){
@@ -7,7 +7,15 @@ function playRound(){
 }
 
 function humanChoice(){
+    let choice = "";
 
+    do{
+        choice = prompt("Enter your choice: ");
+        if(choice === null) console.log("PLKJH")
+        choice = choice.toLowerCase()
+    }while(choice !== "rock" && choice !== "paper" && choice !== "scissors")
+
+    return choice;
 }
 
 function computerChoice(){
