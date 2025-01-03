@@ -3,7 +3,85 @@ function playGame(){
 }
 
 function playRound(){
+    let human = humanChoice();
+    let computer = computerChoice();
+    let gameValue; 
 
+    switch (human){
+        case "rock":
+            switch (computer){
+                case "rock":
+                    gameValue = 0;
+                    break;
+                
+                case "paper":
+                    gameValue = -1;
+                    break;
+                
+                case "scissors":
+                    gameValue = 1;
+                    break;
+
+                default:
+                    gameValue = -2;
+                    break;
+                
+            }
+            break;
+        
+        case "paper":
+            switch (computer){
+                case "rock":
+                    gameValue = 1;
+                    break;
+                
+                case "paper":
+                    gameValue = 0;
+                    break;
+                
+                case "scissors":
+                    gameValue = -1;
+                    break;
+
+                default:
+                    gameValue = -2;
+                    break;
+                
+            }
+            break;
+
+        case "scissors":
+            switch (computer){
+                case "rock":
+                    gameValue = -1;
+                    break;
+                
+                case "paper":
+                    gameValue = 1;
+                    break;
+                
+                case "scissors":
+                    gameValue = 0;
+                    break;
+
+                default:
+                    gameValue = -2;
+                    break;
+                
+            }
+            break;
+
+        default:
+            gameValue = -2;
+    }
+
+    if(gameValue === 0){
+        console.log("It's a tie!")
+    } else if(gameValue === 1){
+        console.log(`You win! ${human} beats ${computer}`)
+    } else{
+        console.loh(`You lose! ${computer} beats ${human}`)
+    }
 }
 
 function humanChoice(){
