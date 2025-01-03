@@ -1,5 +1,5 @@
 function playGame(){
-
+    console.log(computerChoice());
 }
 
 function playRound(){
@@ -11,16 +11,24 @@ function humanChoice(){
 }
 
 function computerChoice(){
-    let remainder = (Math.random * 100) % 3;
-    
-    switch (remainder){
-        case 0:
-            return "rock";
+    let text = "";
 
+    switch (Math.floor(Math.random() * 100)%3){
+        case 0:
+            text = "rock";
+            break;
         case 1:
-            return "papper";
-        
+            text = "papper";
+            break;
         case 2: 
-        return "scissors";
+            text = "scissors";
+            break;
+
+        default:
+            console.log((Math.random * 100) % 3);
+            text = "Something's wrong"
     }
+    return text;
 }
+
+playGame()
