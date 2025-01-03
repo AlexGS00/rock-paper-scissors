@@ -1,11 +1,26 @@
 function playGame(){
-    console.log(humanChoice());
+    let humanScore = 0;
+    let computerScore = 0;
+    for (let i = 0; i < 5; i++) {
+        let roundValue = playRound();
+        console.log(roundValue);
+        if (roundValue === -1) {
+            computerScore += 1;
+        } else if(roundValue===1){
+            humanScore += 1;
+        }
+        console.log(`
+Human Score: ${humanScore}
+Computer Score: ${computerScore}
+            `);
+    }
 }
 
 function playRound(){
     let human = humanChoice();
     let computer = computerChoice();
     let gameValue; 
+
 
     switch (human){
         case "rock":
@@ -20,10 +35,6 @@ function playRound(){
                 
                 case "scissors":
                     gameValue = 1;
-                    break;
-
-                default:
-                    gameValue = -2;
                     break;
                 
             }
@@ -43,9 +54,6 @@ function playRound(){
                     gameValue = -1;
                     break;
 
-                default:
-                    gameValue = -2;
-                    break;
                 
             }
             break;
@@ -63,10 +71,6 @@ function playRound(){
                 case "scissors":
                     gameValue = 0;
                     break;
-
-                default:
-                    gameValue = -2;
-                    break;
                 
             }
             break;
@@ -80,8 +84,10 @@ function playRound(){
     } else if(gameValue === 1){
         console.log(`You win! ${human} beats ${computer}`)
     } else{
-        console.loh(`You lose! ${computer} beats ${human}`)
+        console.log(`You lose! ${computer} beats ${human}`)
     }
+
+    return gameValue;
 }
 
 function humanChoice(){
@@ -104,7 +110,7 @@ function computerChoice(){
             text = "rock";
             break;
         case 1:
-            text = "papper";
+            text = "paper";
             break;
         case 2: 
             text = "scissors";
