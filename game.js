@@ -16,8 +16,15 @@ Computer Score: ${computerScore}
     }
 }
 
-function playRound(){
-    let human = humanChoice();
+let buttons = document.querySelectorAll("button")
+buttons.forEach(button => {
+    button.addEventListener("click", playRound);
+});
+
+function playRound(event) {
+    console.log(event); // Logs the event object
+    let human = event.target.value; // Access the value of the clicked button
+    console.log(human); // Logs "rock", "paper", or "scissors" depending on the button clicked
     let computer = computerChoice();
     let gameValue; 
 
@@ -122,5 +129,3 @@ function computerChoice(){
     }
     return text;
 }
-
-playGame()
