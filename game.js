@@ -97,18 +97,6 @@ function playRound(event) {
     return gameValue;
 }
 
-function humanChoice(){
-    let choice = "";
-
-    do{
-        choice = prompt("Enter your choice: ");
-        if(choice === null) console.log("PLKJH")
-        choice = choice.toLowerCase()
-    }while(choice !== "rock" && choice !== "paper" && choice !== "scissors")
-
-    return choice;
-}
-
 function computerChoice(){
     let text = "";
 
