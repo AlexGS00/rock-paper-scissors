@@ -92,6 +92,7 @@ function playRound(event) {
         console.log(`You lose! ${computer} beats ${human}`)
     }
 
+    updateScore(gameValue);
     return gameValue;
 }
 
