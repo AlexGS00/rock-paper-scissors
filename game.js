@@ -1,19 +1,17 @@
-function updateScore(){
-    let humanScore = 0;
-    let computerScore = 0;
-    for (let i = 0; i < 5; i++) {
-        let roundValue = playRound();
-        console.log(roundValue);
-        if (roundValue === -1) {
-            computerScore += 1;
-        } else if(roundValue===1){
-            humanScore += 1;
-        }
-        console.log(`
-Human Score: ${humanScore}
-Computer Score: ${computerScore}
-            `);
+function updateScore(roundValue){
+    let hScoreDiv = document.querySelector("#human-score");
+    let humanScore = parseInt(hScoreDiv.textContent);
+    let cScoreDiv = document.querySelector("#human-score");
+    let computerScore = parseInt(cScoreDiv.textContent);
+
+    if (roundValue === -1) {
+        computerScore += 1;
+    } else if(roundValue===1){
+        humanScore += 1;
     }
+
+    hScoreDiv.textContent = humanScore;
+    cScoreDiv.textContent = computerScore;
 }
 
 let buttons = document.querySelectorAll("button")
