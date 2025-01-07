@@ -1,17 +1,27 @@
 function updateScore(roundValue){
     let hScoreDiv = document.querySelector("#human-score");
     let humanScore = parseInt(hScoreDiv.textContent);
-    let cScoreDiv = document.querySelector("#human-score");
+    let cScoreDiv = document.querySelector("#computer-score");
     let computerScore = parseInt(cScoreDiv.textContent);
 
     if (roundValue === -1) {
         computerScore += 1;
+        console.log(computerScore)
     } else if(roundValue===1){
         humanScore += 1;
+        console.log(humanScore)
     }
 
     hScoreDiv.textContent = humanScore;
     cScoreDiv.textContent = computerScore;
+
+    if(humanScore >= 5){
+        document.querySelector("#winner").textContent = "Player won the game";
+        document.querySelector("#winner").classList.add("green");
+    } else{
+        document.querySelector("#winner").textContent = "Computer won the game";
+        document.querySelector("#winner").classList.add("red");
+    }
 }
 
 let buttons = document.querySelectorAll("button")
@@ -20,10 +30,10 @@ buttons.forEach(button => {
 });
 
 function playRound(event) {
-    console.log(event); // Logs the event object
     let human = event.target.value; // Access the value of the clicked button
     console.log(human); // Logs "rock", "paper", or "scissors" depending on the button clicked
     let computer = computerChoice();
+    console.log(computer)
     let gameValue; 
 
 
