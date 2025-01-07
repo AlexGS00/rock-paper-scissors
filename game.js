@@ -15,10 +15,10 @@ function updateScore(roundValue){
     hScoreDiv.textContent = humanScore;
     cScoreDiv.textContent = computerScore;
 
-    if(humanScore >= 5){
+    if(humanScore >= 5 && humanScore > computerScore){
         document.querySelector("#winner").textContent = "Player won the game";
         document.querySelector("#winner").classList.add("green");
-    } else{
+    } else if(computerScore>=5 && computerScore > humanScore){
         document.querySelector("#winner").textContent = "Computer won the game";
         document.querySelector("#winner").classList.add("red");
     }
